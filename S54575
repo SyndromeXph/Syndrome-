@@ -1,0 +1,268 @@
+function loadscript()
+
+
+
+    local REN = {
+        ["Name"] = "Syn脚本",
+        ["限免"] = true;
+        ["lp"] = game.Players.LocalPlayer;
+        ["pro_xx812"] = game.Players.LocalPlayer.Name;
+        ["SLYXCLTMKKG"] = game.Players.LocalPlayer.Character.Name;
+        ["SLYXCLTMKKGk"] = game.Players.LocalPlayer.DisplayName;
+    --    ["游戏名4"] = player.Name;
+        
+        
+        ["拓展表"] = {
+            ["传送到玩家身边"] = {
+                playernamedied = nil;
+                dropdown = {};
+            };
+        };
+    };
+    
+    
+    local LBLG = Instance.new("ScreenGui", getParent)
+    local LBL = Instance.new("TextLabel", getParent)
+    local player = game.Players.LocalPlayer
+    
+    LBLG.Name = "LBLG"
+    LBLG.Parent = game.CoreGui
+    LBLG.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    LBLG.Enabled = true
+    LBL.Name = "LBL"
+    LBL.Parent = LBLG
+    LBL.BackgroundColor3 = Color3.new(1, 1, 1)
+    LBL.BackgroundTransparency = 1
+    LBL.BorderColor3 = Color3.new(0, 0, 0)
+    LBL.Position = UDim2.new(0.75,0,0.010,0)
+    LBL.Size = UDim2.new(0, 133, 0, 30)
+    LBL.Font = Enum.Font.GothamSemibold
+    LBL.Text = "TextLabel"
+    LBL.TextColor3 = Color3.new(1, 1, 1)
+    LBL.TextScaled = true
+    LBL.TextSize = 14
+    LBL.TextWrapped = true
+    LBL.Visible = true
+    
+    local FpsLabel = LBL
+    local Heartbeat = game:GetService("RunService").Heartbeat
+    local LastIteration, Start
+    local FrameUpdateTable = { }
+    
+    local function HeartbeatUpdate()
+        LastIteration = tick()
+        for Index = #FrameUpdateTable, 1, -1 do
+            FrameUpdateTable[Index + 1] = (FrameUpdateTable[Index] >= LastIteration - 1) and FrameUpdateTable[Index] or nil
+        end
+        FrameUpdateTable[1] = LastIteration
+        local CurrentFPS = (tick() - Start >= 1 and #FrameUpdateTable) or (#FrameUpdateTable / (tick() - Start))
+        CurrentFPS = CurrentFPS - CurrentFPS % 1
+        FpsLabel.Text = ("北京时间:"..os.date("%H").."时"..os.date("%M").."分"..os.date("%S"))
+    end
+    Start = tick()
+    Heartbeat:Connect(HeartbeatUpdate)
+    
+    local NotificationHolder = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))()
+    local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
+    local ui = loadstring(game:HttpGet("https://raw.githubusercontent.com/renlua/block/main/UI/%E5%BD%A9%E8%99%B9UI.lua"))();		
+    local win = ui:new("Syn脚本")
+    --
+    local UITab1 = win:Tab("『信息』",'6035145364')
+    
+    local about = UITab1:section("『信息』",true)
+    
+    
+    about:Label("感谢支持")
+    about:Label("欢迎使用")
+    about:Label("作者Syndrome")
+    about:Label("此脚本为公益")
+    
+    
+    
+    
+    
+    local Player1 = win:Tab("基础功能",'6035145364')--2
+    local rgb1 = win:Tab("光影",'6035145364')--3
+    local ehe1 = win:Tab("俄亥俄州",'6035145364')--4
+    local heh1 = win:Tab("奎尔湖",'6035145364')--4
+    local bf1 = win:Tab("Blox fruits",'6035145364')--5
+    local jy1 = win:Tab("监狱人生",'6035145364')--6
+    local sjx1 = win:Tab("铲雪模拟器",'6035145364')--7
+    local jjl = win:Tab("进击的僵尸",'6035145364')--8
+    local DoorsTab1 = win:Tab("Doors",'6035145364')--9
+    local zcxbrv = win:Tab("造船寻宝",'6035145364')--10
+    local PHZMT2Tab1 = win:Tab("破坏者谜团2",'6035145364')--11
+    local a1 = win:Tab("刀刃球",'6035145364')--12
+    local JS1 = win:Tab("极速传奇",'6035145364')--13
+    local RZCQ1 = win:Tab("忍者传奇",'6035145364')--14
+    local li1 = win:Tab("力量传奇",'6035145364')--15
+    local FM1 = win:Tab("伐木大亨2",'6035145364')--16
+    local hjfsmnq = win:Tab("火箭发射模拟器",'6035145364')--17
+    local RC1 = win:Tab("rc",'6035145364')--18
+    local BZMNQ1 = win:Tab("巴掌模拟器",'6035145364')--19
+    local CJ1 = win:Tab("超级大力士模拟器",'6035145364')--20
+    local Tab1 = win:Tab("其他脚本『破解』",'6035145364')--21
+    local music1 = win:Tab("音乐",'6035145364')--22
+    
+    local Player = Player1:section("基础功能",true)
+    --
+    local rgb = rgb1:section("光影",true)
+    --
+    --
+    local ehe = ehe1:section("俄亥俄州",true)
+    --
+    local heh = heh1:section("奎尔湖",true)
+    --
+    local jy = jy1:section("监狱人生",true)
+    --
+    local sjx = sjx1:section("主要功能",true)
+    --
+    local jjb = jjl:section("主要功能",true)
+    --
+    local DoorsTab = DoorsTab1:section("中文脚本",false)
+    local DoorsZHTab = DoorsTab1:section("招换物品",false)
+    local DoorsYWTab = DoorsTab1:section("英文脚本",false)
+    --
+    local PHZMT2Tab = PHZMT2Tab1:section("主要功能",false)
+    --
+    local zcxbr = zcxbrv:section("农场",false)
+    --
+    local a = a1:section("刀刃球",false)
+    --
+    local JS = JS1:section("极速传奇",true)
+    --
+    local setup = RZCQ1:section("主要功能",false)
+    local RZCQCS = RZCQ1:section("传送",false)
+    --
+    local li0 = li1:section("主要功能",false)
+    local li = li1:section("传送",false)
+    --
+    local fjfs = hjfsmnq:section("主要功能&传送",false)
+    --
+    local RC = RC1:section("rc",true)
+    --
+    local BZMNQ = BZMNQ1:section("主要",true)
+    local BZMNQZX = BZMNQ1:section("杂项",true)
+    local BZMNQFJN = BZMNQ1:section("防技能",true)
+    --
+    local CJ = CJ1:section("超级大力士模拟器",true)
+    --
+    local Tab = Tab1:section("脚本中心",true)
+    --
+    local music = music1:section("音乐",true)
+    ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    
+    function tp(p)
+       game.Players.LocalPlayer.Character:PivotTo(p)
+    end
+    function shuaxinlb(zji)
+        REN["拓展表"]["传送到玩家身边"].dropdown={}
+        if zji==true then
+        for p, I in next,game.Players:GetChildren() do
+        table.insert(REN["拓展表"]["传送到玩家身边"].dropdown, I.Name)
+        end
+        else
+        for p, I in next, game.Players:GetChildren() do
+        if I ~= lp then
+        table.insert(REN["拓展表"]["传送到玩家身边"].dropdown, I.Name)
+        end
+        end
+        end
+        end
+    shuaxinlb(true)
+    
+    local dropdown = Player:Dropdown("选择玩家名称",'Dropdown',REN["拓展表"]["传送到玩家身边"].dropdown,function(v)
+        REN["拓展表"]["传送到玩家身边"].playernamedied = v
+    end)
+    
+    Player:Button("刷新列表", function()
+        shuaxinlb(true)
+        dropdown:SetOptions(REN["拓展表"]["传送到玩家身边"].dropdown)
+    end)
+    
+    Player:Button("传送到玩家旁边",function()  
+                tp(game:GetService("Players")[REN["拓展表"]["传送到玩家身边"].playernamedied].Character.HumanoidRootPart.CFrame + Vector3.new(0, 3, 0))
+    end)
+    
+    Player:Button("透视",function()  
+    _G.FriendColor = Color3.fromRGB(0, 0, 255)
+        local function ApplyESP(v)
+       if v.Character and v.Character:FindFirstChildOfClass'Humanoid' then
+           v.Character.Humanoid.NameDisplayDistance = 9e9
+           v.Character.Humanoid.NameOcclusion = "NoOcclusion"
+           v.Character.Humanoid.HealthDisplayDistance = 9e9
+           v.Character.Humanoid.HealthDisplayType = "AlwaysOn"
+           v.Character.Humanoid.Health = v.Character.Humanoid.Health -- triggers changed
+       end
+    end
+    for i,v in pairs(game.Players:GetPlayers()) do
+       ApplyESP(v)
+       v.CharacterAdded:Connect(function()
+           task.wait(0.33)
+           ApplyESP(v)
+       end)
+    end
+    
+    game.Players.PlayerAdded:Connect(function(v)
+       ApplyESP(v)
+       v.CharacterAdded:Connect(function()
+           task.wait(0.33)
+           ApplyESP(v)
+       end)
+    end)
+    
+        local Players = game:GetService("Players"):GetChildren()
+    local RunService = game:GetService("RunService")
+    local highlight = Instance.new("Highlight")
+    highlight.Name = "Highlight"
+    
+    for i, v in pairs(Players) do
+        repeat wait() until v.Character
+        if not v.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") then
+            local highlightClone = highlight:Clone()
+            highlightClone.Adornee = v.Character
+            highlightClone.Parent = v.Character:FindFirstChild("HumanoidRootPart")
+            highlightClone.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+            highlightClone.Name = "Highlight"
+        end
+    end
+    
+    game.Players.PlayerAdded:Connect(function(player)
+        repeat wait() until player.Character
+        if not player.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") then
+            local highlightClone = highlight:Clone()
+            highlightClone.Adornee = player.Character
+            highlightClone.Parent = player.Character:FindFirstChild("HumanoidRootPart")
+            highlightClone.Name = "Highlight"
+        end
+    end)
+    
+    game.Players.PlayerRemoving:Connect(function(playerRemoved)
+        playerRemoved.Character:FindFirstChild("HumanoidRootPart").Highlight:Destroy()
+    end)
+    
+    RunService.Heartbeat:Connect(function()
+        for i, v in pairs(Players) do
+            repeat wait() until v.Character
+            if not v.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") then
+                local highlightClone = highlight:Clone()
+                highlightClone.Adornee = v.Character
+                highlightClone.Parent = v.Character:FindFirstChild("HumanoidRootPart")
+                highlightClone.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+                highlightClone.Name = "Highlight"
+                task.wait()
+            end
+    end
+    end)
+    end)
+    
+    Player:Button("飞行", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/28CWNSrK"))()
+    end)
+    
+    Player:Button("飞行2", function()
+        local Speed = 498
+    
+        -- Gui to Lua
+      
